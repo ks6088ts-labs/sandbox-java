@@ -19,6 +19,8 @@ help:
 install-deps-dev: ## install dependencies for development
 	@which gradle || echo "Install Gradle Build Tool: https://gradle.org/install/"
 	@which java || echo "Install JDK: https://www.oracle.com/java/technologies/downloads/"
+	@# https://aquasecurity.github.io/trivy/v0.18.3/installation/#install-script
+	@which trivy || curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b $(TOOLS_DIR) v$(TRIVY_VERSION)
 
 .PHONY: format-check
 format-check: ## format check
